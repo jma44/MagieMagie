@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.controller;
+package streaming.dao;
 
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
-import streaming.entity.Ingredient;
+import streaming.entity.Joueur;
 
 /**
  *
  * @author ajc
  */
-public interface IngredientCrudService extends CrudRepository<Ingredient, Long>
+public interface JoueurCrudRepository extends CrudRepository<Joueur, Long>
 {
     
 }
