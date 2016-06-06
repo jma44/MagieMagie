@@ -20,7 +20,7 @@ import streaming.entity.Joueur;
 public class JoueurService 
 {
     @Autowired
-    private IngredientService iService;
+    private IngredientService iService; 
     
     public Joueur creerJoueur()
     {
