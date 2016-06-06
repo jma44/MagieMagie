@@ -5,8 +5,10 @@
  */
 package streaming.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +31,11 @@ public class ConnnexionController {
     private JoueurCrudRepository jCrud;
 
     @RequestMapping(value = "/demarrer", method = RequestMethod.GET)
-    public String demarrerGET() {
-
+    public String demarrerGET(Model model) {
+        // Liste des joueurs en variable de session
+        List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+        
+        model.addAttribute("listeJoueurs", joueurs);
         
         return "demarrer";        
     }
@@ -49,12 +54,16 @@ public class ConnnexionController {
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
     public String ConnexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) 
     {
+ 
+        
+        
         String pseudo = joueurNouv.getPseudo();
         
         Joueur j = jService.creerJoueur();
         j.setPseudo(pseudo);
         
         jCrud.save(j);
+        
         
         return "redirect:/demarrer";
        

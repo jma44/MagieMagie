@@ -4,6 +4,7 @@
     Author     : ajc
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,10 +15,10 @@
     <body>
         <h1>Ecran Demarrer une partie</h1>
         <div>
-                      <c:forEach items="${monJoueur.id}" var="joueur">
-                    , ${Joueur.pseudo}            
-                </c:forEach>
-            </div>
+             <c:forEach items="${listeJoueurs}" var="joueur">
+             ${joueur.pseudo}            
+             </c:forEach>             
+        </div>
         <input type="submit" title="Demarrer"/>
     </body>
 </html>
