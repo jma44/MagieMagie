@@ -24,8 +24,8 @@ public class FilmController {
     @ResponseBody
     public Film findById( @PathVariable("id") long id){
         
-        Film f = new Film(1L, "Karate Kid", "blabla", 1989L, null);
+        Film test = new Film(1L, "Karate Kid", "blabla", 1989L, null);
         
-        return f;
+        return test;
     }
 }
