@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 
@@ -34,7 +35,7 @@ public class Ingredient implements Serializable {
     private Type typeIngredient;
     
     @ManyToOne
-    @JoinTable(name = "joueur_id")
+    @JoinColumn(name = "joueur_id")
     private Joueur joueur;
 
     public Long getId() {
