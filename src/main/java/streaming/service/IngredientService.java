@@ -6,21 +6,33 @@
 package streaming.service;
 
 import java.util.concurrent.ThreadLocalRandom;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import streaming.dao.IngredientCrudRepository;
+import streaming.dao.JoueurCrudRepository;
 import streaming.entity.Ingredient;
+import streaming.entity.Joueur;
 
 /**
  *
  * @author ajc
  */
 @Service
-public class IngredientService {
-
-    public Ingredient creationIngredientAleatoire() 
+public class IngredientService 
+{
+    @Autowired
+    private IngredientCrudRepository iCrud;
+    
+    @Autowired
+    private JoueurCrudRepository jCrud;
+    
+    public Ingredient creationIngredientAleatoire(long id) 
     {
         Ingredient ingr = new Ingredient();
+        
+        ingr.setJoueur(jCrud.findOne(id));
 
-        int i = ThreadLocalRandom.current().nextInt(1, 5);
+        int i = ThreadLocalRandom.current().nextInt(1, 6);
 
         switch (i) {
             case 1:
@@ -41,6 +53,8 @@ public class IngredientService {
             default:
                 break;
         }
+        
+        iCrud.save(ingr);
         
         return ingr;
     }

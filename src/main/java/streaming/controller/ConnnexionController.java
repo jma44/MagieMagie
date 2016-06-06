@@ -39,8 +39,7 @@ public class ConnnexionController {
     @RequestMapping(value = "/connexion", method = RequestMethod.GET)
     public String ConnexionGET(Model model) {
         
-        model.addAttribute("monJoueur", jService.creerJoueur());
-        
+        model.addAttribute("monJoueur", new Joueur());
         
         return "connexion";
     }
@@ -48,9 +47,14 @@ public class ConnnexionController {
     
     
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String ConnexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) {
+    public String ConnexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) 
+    {
+        String pseudo = joueurNouv.getPseudo();
         
-        jCrud.save(joueurNouv);
+        Joueur j = jService.creerJoueur();
+        j.setPseudo(pseudo);
+        
+        jCrud.save(j);
         
         return "redirect:/demarrer";
        
