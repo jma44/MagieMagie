@@ -4,6 +4,9 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>streaming.entity.Film</class>
     <class>streaming.entity.Genre</class>
+    <class>streaming.entity.Joueur</class>
+    <class>streaming.entity.Ingredient</class>
+    <class>streaming.entity.Sortilege</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
