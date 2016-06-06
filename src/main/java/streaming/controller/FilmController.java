@@ -18,7 +18,7 @@ import streaming.entity.Film;
  */
 @Controller
 @RequestMapping("/film")
-public class FilmController {
+public class FilmController {//test
     
     @RequestMapping(value="find/{id}", method = RequestMethod.GET)
     @ResponseBody
