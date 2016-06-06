@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 mai 2016, 10:00:37
+    Author     : ajc
+*/
+.titre, .contenu, .menu, .pied {
+    text-align: center;
+/*    width : 1024px;
+    background-position: center;*/
+}
+
+.centre{
+   
+}
+
+.titre{
+    background-image: url('Images/sorciere.jpg');
+    height: 200px;
+    font-family: fantasy;
+    font-size : 25px;
+    margin-top: 0px;
+}
+
+
+
+.contenu{
+    background-color: khaki;
+    font-family: fantasy;
+}
+
+.pied{
+    border-width: 3px 0px 3px 0px;
+    font-family: fantasy;
+    border-color: darkgray;
+    border-style: solid;
+    background-color: darkgray;
+}
