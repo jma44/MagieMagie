@@ -13,6 +13,11 @@
     </head>
     <body>
         <h1>Ecran Demarrer une partie</h1>
+        <div>
+                      <c:forEach items="${monJoueur.id}" var="joueur">
+                    , ${Joueur.pseudo}            
+                </c:forEach>
+            </div>
         <input type="submit" title="Demarrer"/>
     </body>
 </html>

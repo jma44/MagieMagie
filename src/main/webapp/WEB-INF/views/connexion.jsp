@@ -4,8 +4,10 @@
     Author     : ajc
 --%>
 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="CSS/style.css" rel="stylesheet" type="text/css"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,3 +26,4 @@
         </form:form>
     </body>
 </html>
+
