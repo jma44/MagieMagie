@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -31,6 +33,7 @@ public class Joueur implements Serializable
     
     private int nbreCartes;
     
+    @Temporal(TemporalType.TIME)
     private Date dateConnexion;//Changer le format poyr obtenir les secondes et minutes
     
     @OneToMany(mappedBy = "joueur")
