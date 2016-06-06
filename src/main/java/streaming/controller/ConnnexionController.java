@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import streaming.dao.JoueurCrudRepository;
 import streaming.entity.Joueur;
 import streaming.service.JoueurService;
 
@@ -23,6 +24,9 @@ public class ConnnexionController {
     
     @Autowired
     private JoueurService jService;
+    
+    @Autowired
+    private JoueurCrudRepository jCrud;
 
     @RequestMapping(value = "/demarrer", method = RequestMethod.GET)
     public String demarrerGET() {
@@ -37,6 +41,7 @@ public class ConnnexionController {
         
         model.addAttribute("monJoueur", jService.creerJoueur());
         
+        
         return "connexion";
     }
     
@@ -44,6 +49,8 @@ public class ConnnexionController {
     
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
     public String ConnexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) {
+        
+        jCrud.save(joueurNouv);
         
         return "redirect:/demarrer";
        
