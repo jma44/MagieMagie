@@ -7,14 +7,22 @@ and open the template in the editor.
     Created on : 24 mai 2016, 10:00:37
     Author     : ajc
 */
-.titre, .contenu, .menu, .pied {
+.titre, .contenu, .pied {
     text-align: center;
 /*    width : 1024px;
     background-position: center;*/
 }
 
-.centre{
-   
+.menu_droite{
+    background-image: url('Images/fond_violet.png');
+    /*color: red;*/
+    font-family: fantasy;
+    text-align: right;   
+}
+
+.menu_gauche{
+    background-image: url('Images/fond_violet.png');
+    text-align: left;   
 }
 
 .titre{
@@ -28,7 +36,9 @@ and open the template in the editor.
 
 
 .contenu{
-    background-color: khaki;
+    background-image: url('Images/fond_violet2.jpg');
+    background-color: darkgray;
+    height: 500px;
     font-family: fantasy;
 }
 
@@ -37,5 +47,5 @@ and open the template in the editor.
     font-family: fantasy;
     border-color: darkgray;
     border-style: solid;
-    background-color: darkgray;
+    background-color: khaki;
 }

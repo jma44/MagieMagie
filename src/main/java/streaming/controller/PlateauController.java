@@ -5,12 +5,19 @@
  */
 package streaming.controller;
 
+import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import streaming.dao.IngredientCrudRepository;
+import streaming.dao.JoueurCrudRepository;
+import streaming.entity.Ingredient;
+import streaming.entity.Joueur;
+import static streaming.entity.Joueur_.ingredients;
 import streaming.service.IngredientService;
 import streaming.service.JoueurService;
 
@@ -25,17 +32,29 @@ public class PlateauController {
     private JoueurService jService;
     
     @Autowired
-    private IngredientService iService;    
+    private JoueurCrudRepository jCrud;    
+    
+    @Autowired
+    private IngredientService iService;
+
+    @Autowired
+    private IngredientCrudRepository iCrud;    
 
     
     @RequestMapping(value = "/plateau/{idJoueur}", method = RequestMethod.GET)
-    public String ajaxPlateauGET(Model model, @PathVariable("idJoueur") long idSorciere) {
-            
-        //model.addAttribute("monPlateau",  );        
+    public String ajaxPlateauGET(Model model, @PathVariable("idJoueur") long idSorciere, HttpSession session) {
+
+        // Recuperation de la liste des Joueurs
+        List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+
+        model.addAttribute("listeJoueurs", joueurs);
         
-        // Recuperation des cartes du Joueur actif
-    
+        // Recuperation des cartes ingredient du Joueur actif
+        List<Ingredient> ingredients = iCrud.findAllByJoueurId(idSorciere);
+
+        model.addAttribute("listeIngredient", ingredients);
         
+     
         
         
         return "plateau";          

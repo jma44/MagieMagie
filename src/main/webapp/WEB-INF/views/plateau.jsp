@@ -17,10 +17,10 @@
         <div class="titre">
             <c:import url="_TITRE.jsp"/>
         </div>
-        <div class="Menu_droite">
+        <div class="menu_droite">
             <c:import url="_MENU_DROITE.jsp"/>
         </div>
-        <div class="Menu_gauche">
+        <div class="menu_gauche">
             <c:import url="_MENU_GAUCHE.jsp"/>
         </div>        
         <div class="contenu">

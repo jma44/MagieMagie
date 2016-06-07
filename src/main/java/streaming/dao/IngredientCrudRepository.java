@@ -6,6 +6,7 @@
 package streaming.dao;
 
 import java.io.Serializable;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import streaming.entity.Ingredient;
 
@@ -15,5 +16,5 @@ import streaming.entity.Ingredient;
  */
 public interface IngredientCrudRepository extends CrudRepository<Ingredient, Long>
 {
-    
+    public List<Ingredient> findAllByJoueurId(long id);
 }

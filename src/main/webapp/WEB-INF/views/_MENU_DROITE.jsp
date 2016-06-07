@@ -4,6 +4,7 @@
     Author     : ajc
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,11 @@
     </head>
     <body>
         <h1>LISTE DES JOUEURS</h1>
-        <c:forEach items="${listeJoueurs}" var="joueur">
-        ${joueur.pseudo} : &nbsp; ${joueur.nbrecartes} &nbsp; cartes             
-        </c:forEach>   
+        <div>
+            <c:forEach items="${listeJoueurs}" var="joueur">
+            ${joueur.pseudo} : &nbsp; ${joueur.nbreCartes} &nbsp; cartes
+            <br>
+            </c:forEach>            
+        </div>
     </body>
 </html>

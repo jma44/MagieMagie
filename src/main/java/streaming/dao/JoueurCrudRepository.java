@@ -6,6 +6,7 @@
 package streaming.dao;
 
 import java.io.Serializable;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import streaming.entity.Joueur;
 
@@ -15,5 +16,5 @@ import streaming.entity.Joueur;
  */
 public interface JoueurCrudRepository extends CrudRepository<Joueur, Long>
 {
-    
+
 }
