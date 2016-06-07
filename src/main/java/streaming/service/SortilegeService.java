@@ -37,8 +37,8 @@ public class SortilegeService
     {
         Joueur j = jCrud.findOne(id);
         
-        List<Ingredient> cornes = iCrud.findAllByTypeAndJoueurId(Ingredient.Type.CORNE_DE_LICORNE, j.getId());
-        List<Ingredient> baves = iCrud.findAllByTypeAndJoueurId(Ingredient.Type.BAVE_DE_CRAPAUD, j.getId());
+        List<Ingredient> cornes = iCrud.findAllByTypeIngredientAndJoueurId(Ingredient.Type.CORNE_DE_LICORNE, j.getId());
+        List<Ingredient> baves = iCrud.findAllByTypeIngredientAndJoueurId(Ingredient.Type.BAVE_DE_CRAPAUD, j.getId());
         
         if(cornes.size()>=1 && baves.size()>=1)
         {

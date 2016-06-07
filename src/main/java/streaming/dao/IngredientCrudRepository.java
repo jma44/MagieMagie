@@ -18,5 +18,5 @@ public interface IngredientCrudRepository extends CrudRepository<Ingredient, Lon
 {
     public List<Ingredient> findAllByJoueurId(long id);
     
-    public List<Ingredient> findAllByTypeAndJoueurId(Ingredient.Type type, long id);
+    public List<Ingredient> findAllByTypeIngredientAndJoueurId(Ingredient.Type type, long id);
 }

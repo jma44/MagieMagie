@@ -25,7 +25,7 @@ import streaming.service.JoueurService;
 public class ConnnexionController {
 
     @Autowired
-    private JoueurService jService;
+    private JoueurService joueurService;
 
     @Autowired
     private JoueurCrudRepository jCrud;
@@ -63,7 +63,7 @@ public class ConnnexionController {
 
         String pseudo = joueurNouv.getPseudo();
 
-        Joueur j = jService.creerJoueur();
+        Joueur j = joueurService.creerJoueur();
         j.setPseudo(pseudo);
 
         jCrud.save(j);
