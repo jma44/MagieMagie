@@ -23,51 +23,53 @@ import streaming.service.JoueurService;
  */
 @Controller
 public class ConnnexionController {
-    
+
     @Autowired
     private JoueurService jService;
-    
+
     @Autowired
     private JoueurCrudRepository jCrud;
 
     @RequestMapping(value = "/demarrer", method = RequestMethod.GET)
     public String demarrerGET(Model model) {
-        // Liste des joueurs en variable de session
+
         List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
-        
+
         model.addAttribute("listeJoueurs", joueurs);
-        
-        return "demarrer";        
-    }
-    
-    
-    @RequestMapping(value = "/connexion", method = RequestMethod.GET)
-    public String ConnexionGET(Model model) {
-        
-        model.addAttribute("monJoueur", new Joueur());
-        
-        return "connexion";
-    }
-    
-    
-    
-    @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String ConnexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) 
-    {
- 
-        
-        
-        String pseudo = joueurNouv.getPseudo();
-        
-        Joueur j = jService.creerJoueur();
-        j.setPseudo(pseudo);
-        
-        jCrud.save(j);
-        
-        
-        return "redirect:/demarrer";
-       
+
+        return "demarrer";
     }
 
-    
+    @RequestMapping(value = "/connexion", method = RequestMethod.GET)
+    public String connexionGET(Model model) {
+
+        model.addAttribute("monJoueur", new Joueur());
+
+        return "connexion";
+    }
+
+    @RequestMapping(value = "/connexion", method = RequestMethod.POST)
+    public String connexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) {
+
+        String pseudo = joueurNouv.getPseudo();
+
+        Joueur j = jService.creerJoueur();
+        j.setPseudo(pseudo);
+
+        jCrud.save(j);
+
+        return "redirect:/demarrer";
+
+    }
+
+    @RequestMapping(value = "/rafraichir_liste", method = RequestMethod.GET)
+    public String rafraichirListeJoueur(Model model) 
+    {
+        List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+
+        model.addAttribute("listeJoueurs", joueurs);
+        
+        return "rafraichir_liste";
+    }
+
 }
