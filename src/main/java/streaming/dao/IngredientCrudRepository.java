@@ -17,4 +17,6 @@ import streaming.entity.Ingredient;
 public interface IngredientCrudRepository extends CrudRepository<Ingredient, Long>
 {
     public List<Ingredient> findAllByJoueurId(long id);
+    
+    public List<Ingredient> findAllByTypeAndJoueurId(Ingredient.Type type, long id);
 }

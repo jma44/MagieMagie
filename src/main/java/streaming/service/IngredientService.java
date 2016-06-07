@@ -58,4 +58,15 @@ public class IngredientService
         
         return ingr;
     }
+
+    public Ingredient creationIngredientSelonType(Ingredient.Type type, Joueur j)
+    {
+        Ingredient i = new Ingredient();
+        i.setTypeIngredient(type);
+        i.setJoueur(j);
+        
+        iCrud.save(i);
+        
+        return i;
+    }
 }
