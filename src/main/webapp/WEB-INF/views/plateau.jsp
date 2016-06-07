@@ -1,6 +1,6 @@
 <%-- 
-    Document   : _Template
-    Created on : 6 juin 2016, 11:10:19
+    Document   : plateau
+    Created on : 6 juin 2016, 16:36:29
     Author     : ajc
 --%>
 
@@ -9,7 +9,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <c:import url="_HEAD.jsp"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='<c:url value="/CSS/style.css"/>' rel="stylesheet" type="text/css"/>
+        <title>JSP Page</title>
     </head>
     <body>
         <div class="titre">

@@ -6,9 +6,9 @@
 package streaming.controller;
 
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +30,16 @@ public class ConnnexionController {
     @Autowired
     private JoueurCrudRepository jCrud;
 
+    @RequestMapping(value = "/demarrer", method = RequestMethod.POST)
+    public String demarrerPOST(Model model,  HttpSession session ) {
+        
+        Joueur j = (Joueur)(session.getAttribute("joueurActuel"));
+        
+        long idJoueur = j.getId();
+                
+        return "redirect:/plateau/" + idJoueur;
+    }    
+    
     @RequestMapping(value = "/demarrer", method = RequestMethod.GET)
     public String demarrerGET(Model model) {
 
@@ -49,7 +59,7 @@ public class ConnnexionController {
     }
 
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String connexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv) {
+    public String connexionPOST(@ModelAttribute("monJoueur") Joueur joueurNouv, HttpSession session) {
 
         String pseudo = joueurNouv.getPseudo();
 
@@ -57,7 +67,10 @@ public class ConnnexionController {
         j.setPseudo(pseudo);
 
         jCrud.save(j);
-
+        
+        // Mettre en variable de session le joueur (a modifier pour plus tard..)        
+        session.setAttribute("joueurActuel",j);
+        
         return "redirect:/demarrer";
 
     }

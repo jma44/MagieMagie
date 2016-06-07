@@ -13,5 +13,18 @@
     </head>
     <body>
         <h1>PLATEAU DE JEU</h1>
+        <c:forEach items="${listeSortilege}" var="sortilege">
+        ${sortilege.sort}            
+        </c:forEach>
+        <form method="post" action="">
+            <label>Sort 1 : </label>
+            <input type ="text" name="sort1"/>
+            &nbsp; &nbsp; &nbsp;  
+            <label>Sort 2 : </label>
+            <input type ="text" name="sort2"/>
+            <br><br>
+            <input type="submit" title="Lancer Sort"/>
+            <input type="submit" title="Passer Tour"/>           
+        </form>
     </body>
 </html>

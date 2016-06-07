@@ -24,12 +24,13 @@
     </head>
     <body>
         <h1>Ecran Demarrer une partie</h1>
-        <div id="liste">
+        <div>
             <c:forEach items="${listeJoueurs}" var="joueur">
-                ${joueur.pseudo}
+                Joueur en attente : ${joueur.pseudo}
                 <br>
             </c:forEach>             
         </div>
-        <input type="submit" title="Demarrer"/>
-    </body>
+        <form method="post">
+            <input type="submit" title="Demarrer"/>
+        </form>
 </html>
