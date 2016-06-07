@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:forEach items="${listeJoueurs}" var="joueur">
-    ${joueur.pseudo}
+    Joueur en attente : ${joueur.pseudo}
     <br>
 </c:forEach>
 J'ai changé

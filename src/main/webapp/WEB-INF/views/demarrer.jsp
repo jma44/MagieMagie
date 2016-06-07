@@ -24,7 +24,7 @@
     </head>
     <body>
         <h1>Ecran Demarrer une partie</h1>
-        <div>
+        <div id="liste">
             <c:forEach items="${listeJoueurs}" var="joueur">
                 Joueur en attente : ${joueur.pseudo}
                 <br>
