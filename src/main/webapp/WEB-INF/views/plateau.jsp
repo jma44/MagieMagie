@@ -31,10 +31,6 @@
         <div class="menu_droite">
             <h2>LISTE DES JOUEURS</h2>
             <div id="infos">
-                <c:forEach items="${listeJoueurs}" var="joueur">
-                    ${joueur.pseudo} : &nbsp; ${joueur.nbreCartes} &nbsp; cartes
-                    <br>
-                </c:forEach>
             </div>
         </div>
         <div class="menu_gauche">

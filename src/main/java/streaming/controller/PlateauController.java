@@ -69,7 +69,7 @@ public class PlateauController {
 
         model.addAttribute("listeJoueurs", joueurs);
         
-        return "rafraichir_nbre_cartes";
+        return "_MENU_DROITE";
     }
     
 }
