@@ -11,14 +11,31 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href='<c:url value="/CSS/style.css"/>' rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Plateau</title>
+        <script src="<c:url value="/js/jquery-2.2.4.js"/>" type="text/javascript"></script>
+        <script lang="javascript">
+            $(function(){
+
+                function rafraichirCartes() {
+                    $("#infos").load("<c:url value="/ajax_rafraichir_nbre_cartes"/>");
+                }
+                setInterval(rafraichirCartes, 10000);
+                rafraichirCartes();
+            });
+        </script>
     </head>
     <body>
         <div class="titre">
             <c:import url="_TITRE.jsp"/>
         </div>
         <div class="menu_droite">
-            <c:import url="_MENU_DROITE.jsp"/>
+            <h2>LISTE DES JOUEURS</h2>
+            <div id="infos">
+                <c:forEach items="${listeJoueurs}" var="joueur">
+                    ${joueur.pseudo} : &nbsp; ${joueur.nbreCartes} &nbsp; cartes
+                    <br>
+                </c:forEach>
+            </div>
         </div>
         <div class="menu_gauche">
             <c:import url="_MENU_GAUCHE.jsp"/>

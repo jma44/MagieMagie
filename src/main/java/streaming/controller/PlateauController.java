@@ -62,6 +62,14 @@ public class PlateauController {
         return "plateau";          
     }
     
-    
+    @RequestMapping(value = "/ajax_rafraichir_nbre_cartes", method = RequestMethod.GET)
+    public String rafraichirListeJoueurCartes(Model model) 
+    {
+        List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+
+        model.addAttribute("listeJoueurs", joueurs);
+        
+        return "rafraichir_nbre_cartes";
+    }
     
 }

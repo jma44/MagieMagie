@@ -6,15 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>LISTE DES JOUEURS</h1>
-        <c:forEach items="${listeJoueurs}" var="joueur">
-        ${joueur.pseudo} : &nbsp; ${joueur.nbrecartes} &nbsp; cartes             
-        </c:forEach>        
-    </body>
-</html>
+
+<h1>LISTE DES JOUEURS</h1>
+<c:forEach items="${listeJoueurs}" var="joueur">
+    ${joueur.pseudo} : &nbsp; ${joueur.nbrecartes} &nbsp; cartes             
+</c:forEach>        
