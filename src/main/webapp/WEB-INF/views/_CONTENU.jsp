@@ -9,30 +9,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <h2>PLATEAU DE JEU</h2>
 <c:if test="${Actif== true}">
-    <form:form method="post">
+    <form:form method="post" modelAttribute="dto">
         <label>Ingredient 1 : </label>
-        <form:select name="listeIngredient">
-            <c:forEach items="${listeIngredient}" var="monIngredient1">
-                <option value="${monIngredient1.id}">${monIngredient1.typeIngredient}</option>                    
-            </c:forEach>               
-        </select>
+        <form:select path="ing1Id" items="${listeIngredient}" itemLabel="typeIngredient" itemValue="id"/>
         &nbsp; &nbsp; &nbsp;  
         <label>Ingredient 2 : </label>
-        <select name="listeIngredient">
-            <c:forEach items="${listeIngredient}" var="monIngredient2">
-                <option value="${monIngredient2.id}">${monIngredient2.typeIngredient}</option>                    
-            </c:forEach>               
-        </select>
+        <form:select path="ing2Id" items="${listeIngredient}" itemLabel="typeIngredient" itemValue="id"/>
         <br><br>
         &nbsp; &nbsp; &nbsp;
         <label>Choix cible : </label>
-        <select name="listeJoueurs">
-            <c:forEach items="${listeJoueurs}" var="maCible">
-                <option value="${maCible.id}">${maCible.pseudo}</option>                    
-            </c:forEach>               
-        </select>
+        <form:select path="victimeId" items="${listeJoueurs}" itemLabel="pseudo" itemValue="id"/>
         <br><br><br><br>
         <input type="submit" value="Lancer Sort" title="Lancer Sort"/>
         <input type="submit" value="Passer Tour" title="Passer Tour"/>           
-    </form>
+    </form:form>
 </c:if>
