@@ -20,7 +20,7 @@
         <label>Choix cible : </label>
         <form:select path="victimeId" items="${listeJoueurs}" itemLabel="pseudo" itemValue="id"/>
         <br><br><br><br>
-        <input type="button" value="Lancer Sort" title="Lancer Sort"/>
+        <input type="button" value="Lancer Sort" title="Lancer Sort" onclick="$.post('lancer_sort', $('form').serialize() );"/>
         <input type="button" value="Passer Tour" title="Passer Tour" onclick="$.get('ajax_passer_tour');"/>           
     </form:form>
 </c:if>

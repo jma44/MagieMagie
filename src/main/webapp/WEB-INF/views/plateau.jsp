@@ -23,7 +23,7 @@
                 function rafraichirCartes() {
                     $("#infos").load("<c:url value="/ajax_rafraichir_nbre_cartes"/>");
                 }
-                setInterval(rafraichirZoneActions, 1000);
+                setInterval(rafraichirZoneActions, 10000);
                 rafraichirZoneActions();
                 setInterval(rafraichirCartes, 1000);
                 rafraichirCartes();

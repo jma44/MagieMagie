@@ -114,8 +114,8 @@ public class PlateauController {
     }
 
     
-    @RequestMapping(value = "/plateau", method = RequestMethod.POST)
-    public String lancerSortPOST(@ModelAttribute("dto") SortDTO dto, HttpSession session) {  
+    @RequestMapping(value = "/lancer_sort", method = RequestMethod.POST)
+    public String ajaxLancerSort(@ModelAttribute("dto") SortDTO dto, HttpSession session) {  
 
         // Récupere joueur actuel
         Joueur joueurAct = (Joueur) session.getAttribute("joueurActuel");
@@ -134,7 +134,7 @@ public class PlateauController {
             sService.invisibilite(joueurAct.getId());
         }
         
-        return "plateau";
+        return "plateau"; 
     }
     
 }
