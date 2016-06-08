@@ -74,6 +74,12 @@ public class PlateauController {
     public String rafraichirListeJoueurCartes(Model model) 
     {
         List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+        
+        for(Joueur j: joueurs)
+        {
+            j.setNbreCartes(j.getIngredients().size());
+            jCrud.save(j);
+        }
 
         model.addAttribute("listeJoueurs", joueurs);
         
