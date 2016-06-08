@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>LISTE DES JOUEURS</h1>
+        <h2>LISTE DES JOUEURS</h2>
         <div>
             <c:forEach items="${listeJoueurs}" var="joueur">
             ${joueur.pseudo} : &nbsp; ${joueur.nbreCartes} &nbsp; cartes

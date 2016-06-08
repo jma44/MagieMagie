@@ -39,7 +39,10 @@ public class Joueur implements Serializable
     @OneToMany(mappedBy = "joueur")
     private List<Ingredient> ingredients;
     
+    private int numAvatar;
+    
     private boolean actif;
+    
     
     public Long getId() {
         return id;
@@ -106,6 +109,15 @@ public class Joueur implements Serializable
         this.ingredients = ingredients;
     }
 
+    public int getNumAvatar() {
+        return numAvatar;
+    }
+
+    public void setNumAvatar(int numAvatar) {
+        this.numAvatar = numAvatar;
+    }
+
+       
     public boolean isActif() {
         return actif;
     }
