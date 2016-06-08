@@ -35,6 +35,7 @@ public class SortilegeService
     
     public void invisibilite(long id)
     {
+        // Lance le sort
         Joueur j = jCrud.findOne(id);
         
         List<Ingredient> cornes = iCrud.findAllByTypeIngredientAndJoueurId(Ingredient.Type.CORNE_DE_LICORNE, j.getId());
@@ -62,5 +63,8 @@ public class SortilegeService
                 }
             }
         }
+        
+        // Passe au joueur suivant
+        jService.passageJoueurSuivant();
     }
 }

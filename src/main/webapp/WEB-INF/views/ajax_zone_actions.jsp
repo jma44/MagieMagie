@@ -8,7 +8,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <h2>PLATEAU DE JEU</h2>
-<c:if test="${Actif== true}">
+<c:if test="${actif==true}">
     <form:form method="post" modelAttribute="dto">
         <label>Ingredient 1 : </label>
         <form:select path="ing1Id" items="${listeIngredient}" itemLabel="typeIngredient" itemValue="id"/>
@@ -20,7 +20,7 @@
         <label>Choix cible : </label>
         <form:select path="victimeId" items="${listeJoueurs}" itemLabel="pseudo" itemValue="id"/>
         <br><br><br><br>
-        <input type="submit" value="Lancer Sort" title="Lancer Sort"/>
-        <input type="submit" value="Passer Tour" title="Passer Tour"/>           
+        <input type="button" value="Lancer Sort" title="Lancer Sort"/>
+        <input type="button" value="Passer Tour" title="Passer Tour" onclick="$.get('ajax_passer_tour');"/>           
     </form:form>
 </c:if>

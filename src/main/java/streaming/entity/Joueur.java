@@ -31,8 +31,6 @@ public class Joueur implements Serializable
     
     private String pseudo;
     
-    private int nbreCartes;
-    
     @Temporal(TemporalType.TIME)
     private Date dateConnexion;//Changer le format poyr obtenir les secondes et minutes
     
@@ -86,11 +84,7 @@ public class Joueur implements Serializable
     }
 
     public int getNbreCartes() {
-        return nbreCartes;
-    }
-
-    public void setNbreCartes(int nbreCartes) {
-        this.nbreCartes = nbreCartes;
+        return this.getIngredients().size();
     }
 
     public Date getDateConnexion() {

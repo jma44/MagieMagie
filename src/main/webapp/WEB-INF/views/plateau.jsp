@@ -15,11 +15,17 @@
         <script src="<c:url value="/js/jquery-2.2.4.js"/>" type="text/javascript"></script>
         <script lang="javascript">
             $(function(){
+                
+                function rafraichirZoneActions() {
+                    $("#zone_actions").load("<c:url value="/ajax_rafraichir_zone_actions"/>");
+                }
 
                 function rafraichirCartes() {
                     $("#infos").load("<c:url value="/ajax_rafraichir_nbre_cartes"/>");
                 }
-                setInterval(rafraichirCartes, 10000);
+                setInterval(rafraichirZoneActions, 1000);
+                rafraichirZoneActions();
+                setInterval(rafraichirCartes, 1000);
                 rafraichirCartes();
             });
         </script>
@@ -36,8 +42,7 @@
         <div class="menu_gauche">
             <c:import url="_MENU_GAUCHE.jsp"/>
         </div>        
-        <div class="contenu">
-            <c:import url="_CONTENU.jsp"/>
+        <div id="zone_actions" class="contenu">
         </div>            
         <div class="pied">
             <c:import url="_PIED.jsp"/>       

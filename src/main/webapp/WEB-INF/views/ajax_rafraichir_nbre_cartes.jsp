@@ -10,4 +10,3 @@
     ${joueur.pseudo} : &nbsp; ${joueur.nbreCartes} &nbsp; cartes
     <br>
 </c:forEach>
-J'ai changé

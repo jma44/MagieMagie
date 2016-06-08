@@ -44,6 +44,39 @@ public class PlateauController {
     @Autowired
     private IngredientCrudRepository iCrud;    
 
+    @RequestMapping(value = "/ajax_passer_tour", method = RequestMethod.GET)
+    public String ajaxPasserTour(){
+        
+        jService.passageJoueurSuivant();
+        
+        return "ajax_vide";
+    }
+    
+    @RequestMapping(value = "/ajax_rafraichir_zone_actions", method = RequestMethod.GET)
+    public String ajaxRafraichirZoneActions(Model model, HttpSession session) {
+
+        Joueur j = (Joueur)session.getAttribute("joueurActuel");
+        j=jCrud.findOne(j.getId());
+        
+        // Recuperation de la liste des Joueurs
+        List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+
+        model.addAttribute("listeJoueurs", joueurs);
+        
+        // Recuperation des cartes ingredient du Joueur actif
+        List<Ingredient> ingredients = iCrud.findAllByJoueurId(j.getId());
+
+        model.addAttribute("listeIngredient", ingredients);
+        
+        SortDTO dto = new SortDTO();
+        model.addAttribute("dto", dto);
+        
+        //test joueur actif
+        System.out.println("********"+j.isActif());
+        model.addAttribute("actif", j.isActif());  
+        
+        return "ajax_zone_actions";
+    }
     
     @RequestMapping(value = "/plateau", method = RequestMethod.GET)
     public String plateauGET(Model model, HttpSession session) {
@@ -75,15 +108,9 @@ public class PlateauController {
     {
         List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
         
-        for(Joueur j: joueurs)
-        {
-            j.setNbreCartes(j.getIngredients().size());
-            jCrud.save(j);
-        }
-
         model.addAttribute("listeJoueurs", joueurs);
         
-        return "_MENU_DROITE";
+        return "ajax_rafraichir_nbre_cartes";
     }
 
     

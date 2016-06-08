@@ -9,4 +9,3 @@
     Joueur en attente : ${joueur.pseudo}
     <br>
 </c:forEach>
-J'ai changé
