@@ -35,6 +35,21 @@ public class ConnnexionController {
         
         Joueur j = (Joueur)(session.getAttribute("joueurActuel"));
         
+        //test joueur actif
+        List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
+        joueurs.get(0).setActif(true);
+        jCrud.save(joueurs.get(0));
+        
+        System.out.println("********* j0 " + joueurs.get(0).isActif());
+        
+        Joueur joueurActif = jCrud.findOne(j.getId());
+        
+        System.out.println("********* jA " + joueurActif.isActif());
+        
+        //mettre a jour le joueur en session pour bien detecter si passer en actif
+        session.setAttribute("joueurActuel",joueurActif);
+        
+        
         long idJoueur = j.getId();
                 
         return "redirect:/plateau/" + idJoueur;
@@ -79,7 +94,7 @@ public class ConnnexionController {
     public String rafraichirListeJoueur(Model model) 
     {
         List<Joueur> joueurs = (List<Joueur>) jCrud.findAll();
-
+        
         model.addAttribute("listeJoueurs", joueurs);
         
         return "rafraichir_liste";

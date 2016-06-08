@@ -16,5 +16,5 @@ import streaming.entity.Joueur;
  */
 public interface JoueurCrudRepository extends CrudRepository<Joueur, Long>
 {
-
+    
 }

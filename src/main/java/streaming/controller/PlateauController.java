@@ -54,8 +54,10 @@ public class PlateauController {
 
         model.addAttribute("listeIngredient", ingredients);
         
-     
-        
+        //test joueur actif
+        Joueur j = (Joueur)session.getAttribute("joueurActuel");
+        System.out.println("********"+j.isActif());
+        model.addAttribute("Actif", j.isActif());  
         
         return "plateau";          
     }
