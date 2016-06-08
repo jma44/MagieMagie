@@ -22,7 +22,7 @@ import streaming.service.JoueurService;
  * @author ajc
  */
 @Controller
-public class ConnnexionController {
+public class ConnexionController {
 
     @Autowired
     private JoueurService joueurService;
@@ -52,7 +52,7 @@ public class ConnnexionController {
         
         long idJoueur = j.getId();
                 
-        return "redirect:/plateau/" + idJoueur;
+        return "redirect:/plateau";
     }    
     
     @RequestMapping(value = "/demarrer", method = RequestMethod.GET)

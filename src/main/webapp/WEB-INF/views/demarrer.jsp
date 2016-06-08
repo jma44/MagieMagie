@@ -31,6 +31,6 @@
             </c:forEach>             
         </div>
         <form method="post">
-            <input type="submit" title="Demarrer"/>
+            <input type="submit" value="Demarrer la partie !"/>
         </form>
 </html>

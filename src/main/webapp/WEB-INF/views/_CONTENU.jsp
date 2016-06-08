@@ -5,12 +5,13 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1>PLATEAU DE JEU</h1>
+<h2>PLATEAU DE JEU</h2>
 <c:if test="${Actif== true}">
-    <form method="post" action="">
+    <form:form method="post">
         <label>Ingredient 1 : </label>
-        <select name="listeIngredient">
+        <form:select name="listeIngredient">
             <c:forEach items="${listeIngredient}" var="monIngredient1">
                 <option value="${monIngredient1.id}">${monIngredient1.typeIngredient}</option>                    
             </c:forEach>               
@@ -23,6 +24,14 @@
             </c:forEach>               
         </select>
         <br><br>
+        &nbsp; &nbsp; &nbsp;
+        <label>Choix cible : </label>
+        <select name="listeJoueurs">
+            <c:forEach items="${listeJoueurs}" var="maCible">
+                <option value="${maCible.id}">${maCible.pseudo}</option>                    
+            </c:forEach>               
+        </select>
+        <br><br><br><br>
         <input type="submit" value="Lancer Sort" title="Lancer Sort"/>
         <input type="submit" value="Passer Tour" title="Passer Tour"/>           
     </form>
